@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qinglicai.user.mapper.ext.UserTokenMapperExt" >
+  <resultMap id="BaseResultMap" type="com.qinglicai.user.model.UserToken" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="queryTokenByUserId" resultType="java.lang.String">
+    SELECT token from t_user_token WHERE user_id = #{user_id}
+    AND create_time > #{create_time} AND is_del != 'Y'
+    ORDER BY create_time desc LIMIT 0,1
+  </select>
+
+  <select id="queryUserIdByToken" resultType="java.lang.Integer">
+    SELECT user_id FROM t_user_token WHERE token = #{token} AND create_time > #{create_time} AND is_del != 'Y'
+  </select>
+</mapper>

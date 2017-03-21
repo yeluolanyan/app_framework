@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC  
+    "-//mybatis.org//DTD Config 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>
+	<settings>
+		<setting name="lazyLoadingEnabled" value="false" />
+        <setting name="callSettersOnNulls" value="true"/>
+        <!--是否打印sql-->
+        <!--<setting name="logImpl" value="com.provider.mybatis.MybatisLogger"/>
+        <setting name="logImpl" value="STDOUT_LOGGING" />-->
+	</settings>
+	<typeAliases> 
+        <!-- simple alias for full class name -->
+    </typeAliases>
+    <typeHandlers>
+        <!--时间处理-->
+        <typeHandler javaType="java.util.Date" handler="com.wu.common.handler.DateTypeHandler"/>
+    </typeHandlers>
+    <mappers>
+        <!--<mapper resource="com/provider/dao/*Mapper.xml"/>-->
+    </mappers>
+</configuration>
+
