@@ -18,6 +18,12 @@
 	<task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
 	<task:scheduler id="qbScheduler" pool-size="10"/>
 
+	<!--拦截器 验证签名及是否登录-->
+	<mvc:interceptors>
+		<bean class="com.wu.common.interceptor.AuthorizeInterceptor"/>
+	</mvc:interceptors>
+
+
 	<mvc:annotation-driven>
 		<!--处理返回json-->
 		<mvc:message-converters register-defaults="true">
