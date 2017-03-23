@@ -20,6 +20,7 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
     private static Logger logger = Logger.getLogger(AuthorizeInterceptor.class);
     @Autowired
     UserTokenService dubboUserTokenService;
+
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         UserHolder.removeUserId();
         //验证签名
@@ -27,7 +28,7 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
 //            writeFail(httpServletResponse, "0", "签名无效");
 //            return false;
 //        }
-        String pathInfo = httpServletRequest.getPathInfo();
+        String pathInfo = httpServletRequest.getServletPath();
         if(pathInfo == null) pathInfo = "/";
         /*过滤不需要认证就可访问的接口*/
         if(isInterceptor(pathInfo)){
@@ -37,7 +38,7 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
         Cookie[] cookies = httpServletRequest.getCookies();
         if(cookies != null) {
             for (Cookie cookie : httpServletRequest.getCookies()) {
-                //TODO 获取cookie
+                // 获取cookie token
                 if ("token".equals(cookie.getName())) {
                     token = cookie.getValue();
                     break;
@@ -57,7 +58,7 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
         return true;
     }
     private boolean isInterceptor(String pathInfo){
-        if(pathInfo.startsWith("/auth") || pathInfo.startsWith("/index")){
+        if((pathInfo.startsWith("/auth") || pathInfo.startsWith("/index")||pathInfo.startsWith("/test"))){
             return true;
         }
         return false;

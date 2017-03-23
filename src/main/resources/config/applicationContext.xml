@@ -14,9 +14,7 @@
 	<mvc:annotation-driven/>
 
 	<!-- 启动包扫描功能，以便注册带有@Controller、@Service、@repository、@Component等注解的类成为spring的bean -->
-	<context:component-scan base-package="com" />
-	<task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
-	<task:scheduler id="qbScheduler" pool-size="10"/>
+	<context:component-scan base-package="com.wu" />
 
 	<!--拦截器 验证签名及是否登录-->
 	<mvc:interceptors>
@@ -55,6 +53,6 @@
 	<import resource="db.xml"/>
 
 	<!--dubbo,redis配置-->
-	<!--<import resource="dubbo.xml"/>
-	<import resource="redis.xml"/>-->
+	<!--<import resource="dubbo.xml"/>-->
+	<import resource="redis.xml"/>
 </beans>

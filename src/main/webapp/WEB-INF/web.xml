@@ -18,6 +18,11 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <!--静态文件-->
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/statics/*</url-pattern>
+  </servlet-mapping>
   <!-- 配置spring核心servlet -->
   <servlet>
     <servlet-name>spring</servlet-name>
