@@ -22,7 +22,7 @@ public class UserTokenServiceImpl implements UserTokenService {
     private UserTokenMapperExt userTokenMapperExt;
     @Autowired
     private UserTokenMapper userTokenMapper;
-
+    @Autowired
     private RedisClient redisClient;
 
     /**

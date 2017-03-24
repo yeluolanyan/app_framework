@@ -32,13 +32,6 @@ public enum CommonEnum {
     IS_DELETE_Y("Y","删除"),
     IS_DELETE_N("N","未删除"),
 
-
-    IF_BUY_PRO_Y("Y","已经购买过标"),
-    IF_BUY_PRO_N("N","未买过标"),
-
-    USER_TYPE_GENERAL("GENERAL","普通用户"),
-    USER_TYPE_SPECIAL("SPECIAL","特约用户"),
-    USER_TYPE_GOOD("GOOD","优质用户")
     ;
 
 
