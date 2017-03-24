@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by lwh on 2016/7/12.
+ * 权限签名认证
  */
 public class AuthorizeInterceptor implements HandlerInterceptor {
     private static Logger logger = Logger.getLogger(AuthorizeInterceptor.class);

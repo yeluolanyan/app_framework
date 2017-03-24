@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Created by lwh on 2016/6/12.
+ * mybatis 日期处理
  */
 @MappedTypes({Date.class})
 @MappedJdbcTypes({JdbcType.INTEGER})

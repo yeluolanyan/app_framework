@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 异常处理.
+ * 全局异常处理.
  */
 public class ExceptionHandler implements HandlerExceptionResolver {
     Logger logger = Logger.getLogger(this.getClass());

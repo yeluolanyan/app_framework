@@ -1,12 +1,11 @@
 package com.wu.service;
 
-import com.wu.common.exception.TokenException;
 
 
 public interface UserTokenService {
     String queryTokenByUserId(int userId);
 
-    Integer queryUserIdByToken(String token) throws TokenException;
+    Integer queryUserIdByToken(String token);
 
     void saveUserToken(int userId, String token);
 

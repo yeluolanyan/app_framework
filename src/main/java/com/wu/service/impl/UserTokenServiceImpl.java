@@ -1,6 +1,5 @@
 package com.wu.service.impl;
 
-import com.wu.common.exception.TokenException;
 import com.wu.common.redis.RedisClient;
 import com.wu.common.utils.CommonEnum;
 import com.wu.common.utils.Constants;
@@ -43,7 +42,7 @@ public class UserTokenServiceImpl implements UserTokenService {
      * @return
      */
     @Override
-    public Integer queryUserIdByToken(String token) throws TokenException {
+    public Integer queryUserIdByToken(String token) {
         //TODO 从redis中查询userId
         String userId = redisClient.getString(CommonEnum.REDIS_USERID.getCode()+token);
         if(!StringUtils.isEmpty(userId)){
@@ -51,9 +50,6 @@ public class UserTokenServiceImpl implements UserTokenService {
         }else {
             int create_time = (int)(System.currentTimeMillis()/1000 - Constants.TOKEN_TIME);
             Integer uId = userTokenMapperExt.queryUserIdByToken(token,create_time);
-            if(uId == null){
-                throw new TokenException();
-            }
             return uId;
         }
     }
